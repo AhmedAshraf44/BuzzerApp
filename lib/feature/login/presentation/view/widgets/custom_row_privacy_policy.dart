@@ -12,34 +12,39 @@ class CustomRowPrivacyPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
+      //wrap
       child: Row(
         children: [
           Text(
             'By tapping next you agree to ',
-            style: AppStyles.textStyle18Regular.copyWith(
+            style: AppStyles.textStyle14Regular.copyWith(
               color: Colors.black,
               fontSize: 15,
             ),
           ),
           Text(
             'T&C ',
-            style: AppStyles.textStyle18Regular.copyWith(
-              color: kFeaturedTextColor,
+            style: AppStyles.textStyle14Regular.copyWith(
+              color: kSecondaryColor,
               fontSize: 15,
+              decorationColor: kSecondaryColor,
+              decoration: TextDecoration.underline,
             ),
           ),
           Text(
             'and ',
-            style: AppStyles.textStyle18Regular.copyWith(
+            style: AppStyles.textStyle14Regular.copyWith(
               color: Colors.black,
               fontSize: 15,
             ),
           ),
           Text(
             'Privacy Policy',
-            style: AppStyles.textStyle18Regular.copyWith(
-              color: kFeaturedTextColor,
+            style: AppStyles.textStyle14Regular.copyWith(
+              color: kSecondaryColor,
               fontSize: 15,
+              decorationColor: kSecondaryColor,
+              decoration: TextDecoration.underline,
             ),
           ),
         ],

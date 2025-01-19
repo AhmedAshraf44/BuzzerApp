@@ -6,12 +6,10 @@ import '../app_styles.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-    required this.formKey,
     required this.text,
     this.onTap,
   });
 
-  final GlobalKey<FormState> formKey;
   final String text;
   final void Function()? onTap;
   @override
@@ -19,8 +17,8 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 300,
-        height: 40,
+        width: 286,
+        height: 48,
         decoration: BoxDecoration(
           color: kButtonColor,
           borderRadius: BorderRadius.circular(20),
@@ -28,10 +26,8 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text.toUpperCase(),
-            style: AppStyles.textStyle24SemiBold.copyWith(
+            style: AppStyles.textStyle16Bold.copyWith(
               color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
             ),
           ),
         ),

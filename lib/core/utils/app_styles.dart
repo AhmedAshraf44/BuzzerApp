@@ -1,8 +1,38 @@
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
-  static const textStyle18Regular = TextStyle(
-    fontSize: 18.0,
+  static const textStyle20Bold = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle18Bold = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle16Bold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle14Bold = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle12Bold = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle10Bold = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static const textStyle16Regular = TextStyle(
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
@@ -11,34 +41,20 @@ abstract class AppStyles {
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
-  static const textStyle22Regular = TextStyle(
-    fontSize: 22,
+  static const textStyle14Regular = TextStyle(
+    fontSize: 14,
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
-  static const textStyle24Regular = TextStyle(
-    fontSize: 24,
+
+  static const textStyle12Regular = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
-  static const textStyle12Medium = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    color: Colors.white,
-  );
-  static const textStyle22SemiBold = TextStyle(
-    fontSize: 22,
-    fontWeight: FontWeight.w600,
-    color: Colors.white,
-  );
-  static const textStyle24SemiBold = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-    color: Colors.white,
-  );
-  static const textStyle26SemiBold = TextStyle(
-    fontSize: 26,
-    fontWeight: FontWeight.w600,
+  static const textStyle18Regular = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
     color: Colors.white,
   );
 }
