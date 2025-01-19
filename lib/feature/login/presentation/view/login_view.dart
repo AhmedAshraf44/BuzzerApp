@@ -1,6 +1,6 @@
 import 'package:buzzer_app/core/function/build_app_bar.dart';
 import 'package:buzzer_app/core/utils/app_router.dart';
-import 'package:buzzer_app/feature/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:buzzer_app/feature/login/presentation/manger/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -20,10 +20,10 @@ class LoginView extends StatelessWidget {
         create: (context) => LoginCubit(),
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state is LoginPhoneSuccessState) {
+            if (state is LoginSuccessState) {
               GoRouter.of(context)
                   .push(AppRouter.kLoginOtpView, extra: state.model);
-            } else if (state is LoginPhoneFailureState) {
+            } else if (state is LoginFailureState) {
               showToast(text: state.errorMessage, color: Colors.red);
             }
           },

@@ -1,14 +1,14 @@
-import 'package:buzzer_app/feature/login/presentation/view/widgets/build_login_details.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../constants.dart';
 
-class BuildLoginBodyDetails extends StatelessWidget {
-  const BuildLoginBodyDetails({
+class BuidDesginLoginAndOtp extends StatelessWidget {
+  const BuidDesginLoginAndOtp({
     super.key,
-    required this.phoneController,
+    required this.widget,
   });
 
-  final TextEditingController phoneController;
+  final Widget widget;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,7 @@ class BuildLoginBodyDetails extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: BuildLoginDetails(phoneController: phoneController),
-        ),
+            padding: const EdgeInsets.symmetric(horizontal: 20), child: widget),
       ),
     );
   }

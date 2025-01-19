@@ -8,12 +8,10 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitialState());
-  var verificationId = '';
-  var auth = FirebaseAuth.instance;
   static LoginCubit get(context) => BlocProvider.of(context);
 
   Future<void> phoneNumberAuthentation({required String phoneNumber}) async {
-    emit(LoginPhoneLoadingState());
+    emit(LoginLoadingState());
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (phoneAuthCredential) async {
@@ -23,14 +21,14 @@ class LoginCubit extends Cubit<LoginState> {
         if (error.code == 'invalid-phone-number') {
           log('The provided phone number is not valid.');
           emit(
-            LoginPhoneFailureState(
+            LoginFailureState(
               errorMessage: 'The provided phone number is not valid.',
             ),
           );
         } else {
           log('Error. Please try again later.');
           emit(
-            LoginPhoneFailureState(
+            LoginFailureState(
               errorMessage: 'Error. Please try again later.',
             ),
           );
@@ -41,7 +39,7 @@ class LoginCubit extends Cubit<LoginState> {
       codeSent: (verificationId, forceResendingToken) {
         // this.verificationId = verificationId;
         log(verificationId.toString());
-        emit(LoginPhoneSuccessState(
+        emit(LoginSuccessState(
             model: LoginDataModel(
                 phoneNumber: phoneNumber, verificationId: verificationId)));
       },
@@ -50,46 +48,5 @@ class LoginCubit extends Cubit<LoginState> {
         log('Auto retrieval time out');
       },
     );
-    // await auth.verifyPhoneNumber(
-    //   phoneNumber: phoneNumber,
-    //   verificationCompleted: (phoneAuthCredential) async {
-    //     await auth.signInWithCredential(phoneAuthCredential);
-    //   },
-    //   verificationFailed: (error) {
-    //     if (error.code == 'invalid-phone-number') {
-    //       log('The provided phone number is not valid.');
-    //       emit(
-    //         LoginPhoneFailureState(
-    //             errorMessage: 'The provided phone number is not valid.'),
-    //       );
-    //     } else {
-    //       log('Error. : ');
-    //       log(error.message.toString());
-    //       log(error.code.toString());
-    //       emit(
-    //         LoginPhoneFailureState(
-    //             errorMessage: 'Error. Please try again later.'),
-    //       );
-    //     }
-    //   },
-    //   codeSent: (verificationId, forceResendingToken) {
-    //     this.verificationId = verificationId;
-    //   },
-    //   codeAutoRetrievalTimeout: (verificationId) {
-    //     this.verificationId = verificationId;
-    //   },
-    // );
-  }
-
-  Future<bool> verifyOTP({required String otp}) async {
-    emit(LoginOtpLoadingState());
-    var userCredential = await auth.signInWithCredential(
-      PhoneAuthProvider.credential(
-        verificationId: verificationId,
-        smsCode: otp,
-      ),
-    );
-    emit(LoginOtpSuccessState());
-    return userCredential.user != null ? true : false;
   }
 }

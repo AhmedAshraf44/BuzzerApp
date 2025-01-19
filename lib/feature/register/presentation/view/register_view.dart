@@ -1,9 +1,11 @@
 import 'package:buzzer_app/core/function/build_app_bar.dart';
+import 'package:buzzer_app/core/utils/app_router.dart';
 import 'package:buzzer_app/core/utils/widgets/custom_button.dart';
 import 'package:buzzer_app/core/utils/widgets/custom_text_form_field.dart';
 import 'package:buzzer_app/feature/register/presentation/manger/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -229,7 +231,9 @@ class RegisterView extends StatelessWidget {
                             CustomButton(
                               onTap: () async {
                                 if (formKey.currentState!.validate()) {
-                                  await cubit.registerUser();
+                                  //await cubit.registerUser();
+                                  GoRouter.of(context)
+                                      .push(AppRouter.kAppLayoutView);
                                 }
                               },
                               text: 'Register',

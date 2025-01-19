@@ -1,9 +1,9 @@
+import 'package:buzzer_app/feature/login/presentation/view/widgets/buid_desgin_login_and_otp.dart';
 import 'package:buzzer_app/feature/login/presentation/view/widgets/custom_row_privacy_policy.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/widgets/custom_button.dart';
-import '../../manger/cubit/login_cubit.dart';
-import 'build_login_body_details.dart';
+import '../../manger/cubit/login/login_cubit.dart';
+import 'build_login_details.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({
@@ -21,7 +21,9 @@ class LoginViewBody extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              BuildLoginBodyDetails(phoneController: phoneController),
+              BuidDesginLoginAndOtp(
+                widget: BuildLoginDetails(phoneController: phoneController),
+              ),
             ],
           ),
         ),
