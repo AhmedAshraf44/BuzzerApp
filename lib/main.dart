@@ -5,6 +5,8 @@ import 'package:buzzer_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'core/function/build_theme_data.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
@@ -22,21 +24,7 @@ class BuzzerApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
-      theme: ThemeData(
-        fontFamily: 'Cairo',
-        appBarTheme: AppBarTheme(
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        scaffoldBackgroundColor: Colors.white,
-        progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.white),
-        // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        //   //showSelectedLabels: false, // <-- HERE
-        //   //showUnselectedLabels: false, // <-- AND HERE
-        //   type: BottomNavigationBarType.fixed,
-        //   backgroundColor: Colors.white,
-        //   selectedItemColor: kButtonColor,
-        // ),
-      ),
+      theme: buildThemeData(),
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:buzzer_app/feature/login/data/model/login_data_model.dart';
 import 'package:buzzer_app/feature/login/presentation/view/otp_view.dart';
 import 'package:buzzer_app/feature/login/presentation/view/login_view.dart';
 import 'package:go_router/go_router.dart';
-import '../../feature/basket/presentation/view/basket_view.dart';
 import '../../feature/layout/presentation/view/app_layout.dart';
 import '../../feature/product/presentation/view/product_view.dart';
 import '../../feature/product_dateils/presentation/view/product_detials.dart';
@@ -46,9 +45,9 @@ abstract class AppRouter {
       path: kProductDetialsView,
       builder: (context, state) => ProductDetialsView(),
     ),
-    GoRoute(
-      path: kProductDetialsView,
-      builder: (context, state) => BasketView(),
-    ),
+    // GoRoute(
+    //   path: kProductDetialsView,
+    //   builder: (context, state) => CartView(),
+    // ),
   ]);
 }

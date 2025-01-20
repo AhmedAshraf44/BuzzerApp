@@ -15,8 +15,10 @@ class OtpCubit extends Cubit<OtpState> {
     try {
       final credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otp);
-      await FirebaseAuth.instance.signInWithCredential(credential);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
       emit(OtpSuccessState());
+      log(userCredential.user?.uid.toString() ?? '');
     } catch (e) {
       emit(OtpFailureState(errorMessage: e.toString()));
       log(e.toString());

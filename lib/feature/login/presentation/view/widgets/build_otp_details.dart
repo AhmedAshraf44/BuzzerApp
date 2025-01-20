@@ -28,7 +28,7 @@ class BuildOtpDetails extends StatelessWidget {
           height: 10,
         ),
         Text(
-          'Enter the authentation code sent at ******982',
+          'Enter the authentation code sent at **********${model.phoneNumber.substring(10)}',
           style: AppStyles.textStyle16Regular,
         ),
         SizedBox(

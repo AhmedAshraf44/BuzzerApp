@@ -47,11 +47,10 @@ class BuildBottomNavBarAppLayout extends StatelessWidget {
                   index: 0,
                   cubit: cubit),
               buildBottomNavyBarItem(
-                title: 'Notifications',
-                assetName: Assets.imagesNov,
+                title: 'Cart',
+                assetName: Assets.imagesCartShopping,
                 index: 1,
                 cubit: cubit,
-                left: 3,
               ),
               buildBottomNavyBarItem(
                 title: 'Profile',

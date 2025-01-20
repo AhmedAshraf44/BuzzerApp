@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/BUZZER_APP.svg
   static const String imagesBUZZERAPP = "assets/images/BUZZER_APP.svg";
 
+  /// Assets for imagesCartShopping
+  /// assets/images/cart-shopping.svg
+  static const String imagesCartShopping = "assets/images/cart-shopping.svg";
+
   /// Assets for imagesHome
   /// assets/images/home.svg
   static const String imagesHome = "assets/images/home.svg";
@@ -17,10 +21,6 @@ class Assets {
   /// Assets for imagesMenu
   /// assets/images/menu.svg
   static const String imagesMenu = "assets/images/menu.svg";
-
-  /// Assets for imagesNov
-  /// assets/images/nov.svg
-  static const String imagesNov = "assets/images/nov.svg";
 
   /// Assets for imagesPdImage
   /// assets/images/pdImage.jpg

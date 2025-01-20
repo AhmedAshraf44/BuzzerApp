@@ -16,7 +16,9 @@ buildBottomNavyBarItem({
     BottomNavyBarItem(
       icon: Padding(
         padding: EdgeInsets.only(left: left),
-        child: SvgPicture.asset(assetName,
+        child: SvgPicture.asset(
+            width: 20,
+            assetName,
             colorFilter: cubit.currentIndex == index
                 ? ColorFilter.mode(
                     kButtonColor,
