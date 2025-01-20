@@ -1,6 +1,7 @@
-import 'package:buzzer_app/feature/login/presentation/view/widgets/buid_desgin_login_and_otp.dart';
+import 'package:buzzer_app/feature/login/presentation/view/widgets/buid_desgin_auth.dart';
 import 'package:buzzer_app/feature/login/presentation/view/widgets/custom_row_privacy_policy.dart';
 import 'package:flutter/material.dart';
+import '../../../../../constants.dart';
 import '../../../../../core/utils/widgets/custom_button.dart';
 import '../../manger/cubit/login/login_cubit.dart';
 import 'build_login_details.dart';
@@ -21,14 +22,14 @@ class LoginViewBody extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              BuidDesginLoginAndOtp(
+              BuidDesignAuth(
                 widget: BuildLoginDetails(phoneController: phoneController),
               ),
             ],
           ),
         ),
         Positioned(
-          bottom: MediaQuery.sizeOf(context).height / 3 + 35,
+          top: kButtonHeight,
           child: CustomButton(
             onTap: () async {
               if (formKey.currentState!.validate()) {
@@ -39,6 +40,10 @@ class LoginViewBody extends StatelessWidget {
             text: 'Next',
           ),
         ),
+        // Positioned(
+        //   top: kDesignHeight + 40,
+        //   child: CustomRowNotAccount(),
+        // ),
         Positioned(
           bottom: 10,
           child: CustomRowPrivacyPolicy(),

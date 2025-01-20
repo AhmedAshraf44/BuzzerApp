@@ -8,20 +8,28 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.text,
     this.onTap,
+    this.width,
+    this.buttonColor,
+    this.borderColor,
   });
 
   final String text;
   final void Function()? onTap;
+  final double? width;
+  final Color? buttonColor;
+  final Color? borderColor;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 286,
+        width: width ?? 286,
         height: 48,
         decoration: BoxDecoration(
-          color: kButtonColor,
+          color: buttonColor ?? kButtonColor,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: borderColor ?? kButtonColor),
         ),
         child: Center(
           child: Text(

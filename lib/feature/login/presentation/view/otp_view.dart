@@ -4,6 +4,8 @@ import 'package:buzzer_app/feature/login/presentation/manger/cubit/otp/otp_cubit
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../../../constants.dart';
 import '../../../../core/function/build_app_bar.dart';
 import '../../../../core/function/show_toast.dart';
 import 'widgets/otp_view_body.dart';
@@ -14,20 +16,24 @@ class OtpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(title: 'Login Code', leadingWidth: 20),
+      appBar: buildAppBar(title: 'Login Code', leadingWidth: 30),
       body: BlocProvider(
         create: (context) => OtpCubit(),
         child: BlocConsumer<OtpCubit, OtpState>(
           listener: (context, state) {
             if (state is OtpSuccessState) {
-              GoRouter.of(context).push(AppRouter.kRegisterView);
+              GoRouter.of(context).push(AppRouter.kAppLayoutView);
             } else if (state is OtpFailureState) {
               showToast(text: state.errorMessage, color: Colors.red);
             }
           },
           builder: (context, state) {
-            return OtpViewBody(
-              model: model,
+            return ModalProgressHUD(
+              inAsyncCall: state is OtpLoadingState,
+              color: kPrimaryColor,
+              child: OtpViewBody(
+                model: model,
+              ),
             );
           },
         ),

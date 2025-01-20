@@ -16,6 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
       phoneNumber: phoneNumber,
       verificationCompleted: (phoneAuthCredential) async {
         await FirebaseAuth.instance.signInWithCredential(phoneAuthCredential);
+        log(phoneAuthCredential.providerId);
       },
       verificationFailed: (error) {
         if (error.code == 'invalid-phone-number') {

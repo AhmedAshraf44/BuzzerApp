@@ -1,5 +1,5 @@
 import 'package:buzzer_app/constants.dart';
-import 'package:buzzer_app/feature/login/presentation/view/widgets/buid_desgin_login_and_otp.dart';
+import 'package:buzzer_app/feature/login/presentation/view/widgets/buid_desgin_auth.dart';
 import 'package:buzzer_app/feature/login/presentation/view/widgets/build_otp_details.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class OtpViewBody extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              BuidDesginLoginAndOtp(
+              BuidDesignAuth(
                 widget:
                     BuildOtpDetails(model: model, otpController: otpController),
               ),
@@ -35,7 +35,7 @@ class OtpViewBody extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: MediaQuery.sizeOf(context).height / 3 + 30,
+          top: kButtonHeight,
           child: CustomButton(
             onTap: () async {
               if (formKey.currentState!.validate()) {

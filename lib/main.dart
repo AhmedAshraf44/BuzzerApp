@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:buzzer_app/bloc_observer.dart';
-import 'package:buzzer_app/constants.dart';
 import 'package:buzzer_app/core/utils/app_router.dart';
 import 'package:buzzer_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,11 +27,15 @@ class BuzzerApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(color: Colors.white),
         ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          selectedItemColor: kButtonColor,
-        ),
+        scaffoldBackgroundColor: Colors.white,
+        progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.white),
+        // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        //   //showSelectedLabels: false, // <-- HERE
+        //   //showUnselectedLabels: false, // <-- AND HERE
+        //   type: BottomNavigationBarType.fixed,
+        //   backgroundColor: Colors.white,
+        //   selectedItemColor: kButtonColor,
+        // ),
       ),
     );
   }

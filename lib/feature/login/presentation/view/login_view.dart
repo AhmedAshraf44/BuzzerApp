@@ -1,9 +1,11 @@
+import 'package:buzzer_app/constants.dart';
 import 'package:buzzer_app/core/function/build_app_bar.dart';
 import 'package:buzzer_app/core/utils/app_router.dart';
 import 'package:buzzer_app/feature/login/presentation/manger/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/function/show_toast.dart';
 import 'widgets/login_view_body.dart';
 
@@ -28,7 +30,11 @@ class LoginView extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return LoginViewBody();
+            return ModalProgressHUD(
+              inAsyncCall: state is LoginLoadingState,
+              color: kPrimaryColor,
+              child: LoginViewBody(),
+            );
           },
         ),
       ),

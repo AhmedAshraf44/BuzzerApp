@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 
-class BuidDesginLoginAndOtp extends StatelessWidget {
-  const BuidDesginLoginAndOtp({
+class BuidDesignAuth extends StatelessWidget {
+  const BuidDesignAuth({
     super.key,
     required this.widget,
   });
@@ -14,10 +14,10 @@ class BuidDesginLoginAndOtp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(150),
+        bottomRight: Radius.circular(220),
       ),
       child: Container(
-        height: MediaQuery.sizeOf(context).height / 2,
+        height: kDesignHeight,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
