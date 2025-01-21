@@ -30,6 +30,7 @@ environment:
 dependencies:
   bloc: ^9.0.0
   bottom_navy_bar: ^6.1.0
+  cached_network_image: ^3.4.1
   cloud_firestore: ^5.6.1
   conditional_builder_null_safety: ^0.0.6
   cupertino_icons: ^1.0.8

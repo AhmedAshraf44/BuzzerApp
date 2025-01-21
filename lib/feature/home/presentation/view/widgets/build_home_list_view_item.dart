@@ -1,4 +1,5 @@
 import 'package:buzzer_app/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'custom_home_item_details.dart';
 import '../../../../layout/data/model/restaurant_model/restaurant.dart';
@@ -32,12 +33,22 @@ class BuildHomeListViewItem extends StatelessWidget {
               bottomRight: Radius.circular(150),
               topRight: Radius.circular(150),
             ),
-            child: Image.network(
+            child: CachedNetworkImage(
+              imageUrl: restaurants.image!,
+              fit: BoxFit.cover,
               height: MediaQuery.sizeOf(context).height / 6,
               width: MediaQuery.sizeOf(context).width / 2.5,
-              restaurants.image!,
-              fit: BoxFit.cover,
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
+
+            //  Image.network(
+            //   height: MediaQuery.sizeOf(context).height / 6,
+            //   width: MediaQuery.sizeOf(context).width / 2.5,
+            //   restaurants.image!,
+            //   fit: BoxFit.cover,
+            // ),
           ),
           SizedBox(
             width: 14,

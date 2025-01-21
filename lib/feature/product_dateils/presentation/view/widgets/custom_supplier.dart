@@ -1,4 +1,5 @@
 import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_supplier_item_details.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
@@ -45,11 +46,20 @@ class CustomSupplier extends StatelessWidget {
                 bottomRight: Radius.circular(150),
                 topRight: Radius.circular(150),
               ),
-              child: Image.network(
-                product.imageRestaurant!,
-                height: 85,
+              child: CachedNetworkImage(
                 fit: BoxFit.cover,
+                height: 85,
+                imageUrl: product.imageRestaurant!,
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
+
+              // Image.network(
+              //   product.imageRestaurant!,
+              //   height: 85,
+              //   fit: BoxFit.cover,
+              // ),
             ),
             SizedBox(
               width: 19,

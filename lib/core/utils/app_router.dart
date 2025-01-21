@@ -2,7 +2,6 @@ import 'package:buzzer_app/feature/login/data/model/login_data_model.dart';
 import 'package:buzzer_app/feature/login/presentation/view/otp_view.dart';
 import 'package:buzzer_app/feature/login/presentation/view/login_view.dart';
 import 'package:go_router/go_router.dart';
-import '../../feature/cart/presentation/view/cart_view.dart';
 import '../../feature/layout/data/model/restaurant_model/product.dart';
 import '../../feature/layout/presentation/view/app_layout.dart';
 import '../../feature/product/presentation/view/product_view.dart';
