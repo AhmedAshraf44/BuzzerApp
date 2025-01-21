@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_button.dart';
 
@@ -13,7 +12,7 @@ class AddProductBottomSheet extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Note',
+            'Added to Basket',
             style: AppStyles.textStyle20Bold.copyWith(color: Colors.black),
           ),
           SizedBox(
@@ -21,7 +20,7 @@ class AddProductBottomSheet extends StatelessWidget {
           ),
           Text(
             textAlign: TextAlign.center,
-            'You have already selected products from a different supplier. if you continue, your cart and selection will be removed.',
+            'You Item has been successfully added to the basket.',
             style: AppStyles.textStyle14Regular.copyWith(
               color: Color(0xff8B8B8B),
             ),
@@ -36,14 +35,14 @@ class AddProductBottomSheet extends StatelessWidget {
                 borderColor: Colors.black,
                 buttonColor: Colors.white,
                 width: MediaQuery.sizeOf(context).width / 2 - 50,
-                text: 'No',
+                text: 'CONT.SHOPPING',
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               CustomButton(
                 width: MediaQuery.sizeOf(context).width / 2 - 50,
-                text: 'Yes',
+                text: 'VIEW BASKET',
                 onTap: () {},
               ),
             ],

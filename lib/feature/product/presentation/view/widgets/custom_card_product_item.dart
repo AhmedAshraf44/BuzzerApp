@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_rating.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 
 class CustomCardProductItem extends StatelessWidget {
   const CustomCardProductItem({
     super.key,
+    required this.product,
   });
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class CustomCardProductItem extends StatelessWidget {
               height: 5,
             ),
             Text(
-              'Par Lane  Hotel',
+              product.place!,
               style: AppStyles.textStyle12Regular.copyWith(
                 color: Colors.black.withValues(alpha: .5),
               ),
@@ -58,14 +61,14 @@ class CustomCardProductItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Restaurant',
+                  product.type!,
                   style: AppStyles.textStyle12Regular.copyWith(
                     color: Color(0xffEC362B),
                   ),
                 ),
                 Spacer(),
                 Text(
-                  'SAR 89',
+                  'SAR ${product.discountPrice.toString()}',
                   style: AppStyles.textStyle12Regular.copyWith(
                       color: Color(0xff8B8B8B),
                       decoration: TextDecoration.lineThrough),
@@ -74,7 +77,7 @@ class CustomCardProductItem extends StatelessWidget {
                   width: 5,
                 ),
                 Text(
-                  'SAR 79',
+                  'SAR ${product.price.toString()}',
                   style: AppStyles.textStyle14Bold.copyWith(
                     color: kSecondaryColor,
                   ),

@@ -5,11 +5,14 @@ import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/cus
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/widgets/my_divider.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 
 class CustomProductDetailsBody extends StatelessWidget {
   const CustomProductDetailsBody({
     super.key,
+    required this.product,
   });
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,21 @@ class CustomProductDetailsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomProductDetailsImageAndPrice(),
+            CustomProductDetailsImageAndPrice(
+              product: product,
+            ),
             MyDivider(),
-            CustomSupplier(),
+            CustomSupplier(
+              product: product,
+            ),
             MyDivider(),
-            CustomDescription(),
+            CustomDescription(
+              product: product,
+            ),
             MyDivider(),
-            CustomCustomerReview(),
+            CustomCustomerReview(
+              product: product,
+            ),
           ],
         ),
       ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_rating.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 
 class CustomProductDetailsImageAndPrice extends StatelessWidget {
-  const CustomProductDetailsImageAndPrice({super.key});
+  const CustomProductDetailsImageAndPrice({super.key, required this.product});
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class CustomProductDetailsImageAndPrice extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(
-                Assets.imagesProductD,
+              image: NetworkImage(
+                product.imageProduct!,
               ),
             ),
           ),
@@ -36,7 +37,7 @@ class CustomProductDetailsImageAndPrice extends StatelessWidget {
           height: 5,
         ),
         Text(
-          'Butter Sandwich',
+          product.nameProduct!,
           style: AppStyles.textStyle18Bold.copyWith(color: Colors.black),
         ),
         SizedBox(
@@ -45,7 +46,7 @@ class CustomProductDetailsImageAndPrice extends StatelessWidget {
         Row(
           children: [
             Text(
-              'SAR 79',
+              'SAR ${product.price}',
               style: AppStyles.textStyle16Bold.copyWith(
                 color: kSecondaryColor,
               ),
@@ -54,7 +55,7 @@ class CustomProductDetailsImageAndPrice extends StatelessWidget {
               width: 8,
             ),
             Text(
-              'SAR 89',
+              'SAR ${product.discountPrice}',
               style: AppStyles.textStyle12Regular.copyWith(
                 color: Color(0xff8B8B8B),
                 decoration: TextDecoration.lineThrough,

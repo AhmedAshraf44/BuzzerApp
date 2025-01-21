@@ -5,6 +5,6 @@ const Color kSecondaryColor = Color(0xff750605);
 const Color kButtonColor = Color(0xffFFBB15);
 const Color kTextColor = Color(0xffD9D9D9);
 String uId = '';
-const String kUsers = 'users';
+const String kRestaurant = 'restaurant';
 const double kDesignHeight = 450;
 const double kButtonHeight = kDesignHeight - (48 / 2);

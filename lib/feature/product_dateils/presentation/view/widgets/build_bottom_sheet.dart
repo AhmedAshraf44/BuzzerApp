@@ -1,13 +1,15 @@
 import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_row_button_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/widgets/custom_button.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 import 'add_product_bottom_sheet.dart';
 
 class BuildBottomSheet extends StatelessWidget {
   const BuildBottomSheet({
     super.key,
+    required this.product,
   });
-
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,9 +27,16 @@ class BuildBottomSheet extends StatelessWidget {
             SizedBox(
               width: 13,
             ),
+            // BlocProvider(
+            //   create: (context) => AppCubit(),
+            //   child: BlocBuilder<AppCubit, AppState>(
+            //     builder: (context, state) {
+            // return
             Expanded(
               child: CustomButton(
                 onTap: () {
+                  //             log(product.id.toString());
+                  //             AppCubit.get(context).updateCart();
                   showModalBottomSheet(
                     isDismissible: true,
                     backgroundColor: Colors.transparent.withValues(alpha: .4),
@@ -38,7 +47,7 @@ class BuildBottomSheet extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Center(
                           child: AspectRatio(
-                            aspectRatio: 1 / 0.58,
+                            aspectRatio: 1 / 0.5,
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
@@ -63,11 +72,11 @@ class BuildBottomSheet extends StatelessWidget {
                   );
                 },
                 text: 'ADD TO BASKET',
-                //  onPressed: () {
-                // showBottomSheet(context);
-                //  },
               ),
             ),
+            //   },
+            //),
+            // ),
           ],
         ),
       ),

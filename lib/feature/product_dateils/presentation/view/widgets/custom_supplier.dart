@@ -1,15 +1,15 @@
+import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_supplier_item_details.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../constants.dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../../core/utils/widgets/custom_home_and_supplier_item_details.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 
 class CustomSupplier extends StatelessWidget {
   const CustomSupplier({
     super.key,
+    required this.product,
   });
-
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,18 +38,24 @@ class CustomSupplier extends StatelessWidget {
         ),
         Row(
           children: [
-            Image.asset(
-              Assets.imagesTest,
-              height: 85,
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(18),
+                bottomLeft: Radius.circular(18),
+                bottomRight: Radius.circular(150),
+                topRight: Radius.circular(150),
+              ),
+              child: Image.network(
+                product.imageRestaurant!,
+                height: 85,
+                fit: BoxFit.cover,
+              ),
             ),
             SizedBox(
               width: 19,
             ),
-            CustomHomeAndSupplierItemDetails(
-              hightSizedBox: 3,
-              iconSize: 12,
-              fontSizeAddres: 10,
-              fontSizeRestaurant: 12,
+            CustomSupplierItemDetails(
+              product: product,
             ),
           ],
         ),

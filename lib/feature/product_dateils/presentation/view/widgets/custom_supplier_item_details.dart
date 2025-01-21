@@ -1,21 +1,17 @@
 import 'package:buzzer_app/core/utils/widgets/custom_rating.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
-import '../app_styles.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/utils/app_styles.dart';
+import '../../../../layout/data/model/restaurant_model/product.dart';
 
-class CustomHomeAndSupplierItemDetails extends StatelessWidget {
-  const CustomHomeAndSupplierItemDetails({
+class CustomSupplierItemDetails extends StatelessWidget {
+  const CustomSupplierItemDetails({
     super.key,
-    this.hightSizedBox,
-    this.iconSize,
-    this.fontSizeAddres,
-    this.fontSizeRestaurant,
+    required this.product,
   });
-  final double? hightSizedBox;
-  final double? iconSize;
-  final double? fontSizeAddres;
-  final double? fontSizeRestaurant;
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -26,38 +22,37 @@ class CustomHomeAndSupplierItemDetails extends StatelessWidget {
           size: 12,
         ),
         SizedBox(
-          height: hightSizedBox ?? 8,
+          height: 3,
         ),
         Text(
-          'The Skye',
+          product.name!,
           style: AppStyles.textStyle16Bold.copyWith(
             color: Colors.black,
           ),
         ),
         Text(
-          'Restaurant',
-          style: AppStyles.textStyle14Regular.copyWith(
+          product.type!,
+          style: AppStyles.textStyle12Regular.copyWith(
             color: Color(0xffEC362B),
-            fontSize: fontSizeRestaurant,
           ),
         ),
         SizedBox(
-          height: hightSizedBox ?? 8,
+          height: 3,
         ),
         Row(
           children: [
             Icon(
               Icons.location_on,
               color: kPrimaryColor,
-              size: iconSize ?? 14,
+              size: 12,
             ),
             SizedBox(
-              width: 5,
+              width: 3,
             ),
             Text(
-              'Main Market Riyadh, KSA',
+              product.address!,
               style: AppStyles.textStyle12Regular.copyWith(
-                fontSize: fontSizeAddres,
+                fontSize: 10,
                 color: Colors.black.withValues(alpha: .5),
               ),
             ),

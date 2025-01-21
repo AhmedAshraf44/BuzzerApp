@@ -1,10 +1,11 @@
+import 'package:buzzer_app/feature/layout/data/model/restaurant_model/product.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'custom_customer_review_list_view.dart';
 
 class CustomCustomerReview extends StatelessWidget {
-  const CustomCustomerReview({super.key});
-
+  const CustomCustomerReview({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +20,9 @@ class CustomCustomerReview extends StatelessWidget {
         SizedBox(
           height: 29,
         ),
-        CustomCustomerReviewListView(),
+        CustomCustomerReviewListView(
+          product: product,
+        ),
         SizedBox(
           height: 80,
         ),

@@ -1,11 +1,12 @@
 import 'package:buzzer_app/core/function/build_app_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../../../layout/data/model/restaurant_model/product.dart';
 import 'widgets/custom_card_product.dart';
 
 class ProductView extends StatelessWidget {
-  const ProductView({super.key});
-
+  const ProductView({super.key, required this.products});
+  final List<Product> products;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,11 +26,11 @@ class ProductView extends StatelessWidget {
             childAspectRatio: 1.1,
             mainAxisSpacing: 75,
           ),
-          itemCount: 10,
+          itemCount: products.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.only(bottom: 20),
-              child: CustomCardProduct(),
+              child: CustomCardProduct(product: products[index]),
             );
           },
         ),
