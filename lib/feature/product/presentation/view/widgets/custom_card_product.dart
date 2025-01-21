@@ -20,18 +20,6 @@ class CustomCardProduct extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          //   Container(
-          // decoration: BoxDecoration(
-          //   boxShadow: [
-          //     BoxShadow(
-          //       color: Colors.black.withValues(alpha: .15),
-          //       blurRadius: 40,
-          //       spreadRadius: 0,
-          //       offset: const Offset(0, 0),
-          //     ),
-          //   ],
-          // ),
-          //child:
           CustomCardProductItem(
             product: product,
           ),

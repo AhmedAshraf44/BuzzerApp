@@ -1,7 +1,5 @@
 import 'package:buzzer_app/feature/layout/data/model/restaurant_model/review.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/custom_rating.dart';
 
