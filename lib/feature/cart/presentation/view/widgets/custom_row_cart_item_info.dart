@@ -54,8 +54,8 @@ class CustomRowCartItemInfo extends StatelessWidget {
         Spacer(),
         IconButton(
           onPressed: () async {
-            await cubit.deleteFirstProduct(index);
-            cubit.getCartData();
+            // await cubit.deleteFirstProduct(index);
+            // cubit.getCartData();
           },
           icon: Icon(
             Icons.delete,

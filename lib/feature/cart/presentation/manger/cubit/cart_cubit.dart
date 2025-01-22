@@ -40,32 +40,34 @@ class CartCubit extends Cubit<CartState> {
       },
     );
   }
-
-  Future<void> deleteFirstProduct(int index) async {
-    DocumentReference docRef =
-        FirebaseFirestore.instance.collection(kCart).doc(kuId);
-    FirebaseFirestore.instance.runTransaction((transaction) async {
-      DocumentSnapshot docSnapshot = await transaction.get(docRef);
-
-      if (docSnapshot.exists) {
-        List<dynamic> products = docSnapshot['products'];
-
-        if (products.isNotEmpty) {
-          products.removeAt(index);
-
-          transaction.update(docRef, {
-            'products': products,
-          });
-
-          print("First product deleted successfully.");
-        } else {
-          print("No products to delete.");
-        }
-      } else {
-        print("Document does not exist.");
-      }
-    }).catchError((error) {
-      print("Failed to delete product: $error");
-    });
-  }
 }
+
+
+
+  // Future<void> deleteFirstProduct(int index) async {
+  //   DocumentReference docRef =
+  //       FirebaseFirestore.instance.collection(kCart).doc(kuId);
+  //   FirebaseFirestore.instance.runTransaction((transaction) async {
+  //     DocumentSnapshot docSnapshot = await transaction.get(docRef);
+
+  //     if (docSnapshot.exists) {
+  //       List<dynamic> products = docSnapshot['products'];
+
+  //       if (products.isNotEmpty) {
+  //         products.removeAt(index);
+
+  //         transaction.update(docRef, {
+  //           'products': products,
+  //         });
+
+  //         print("First product deleted successfully.");
+  //       } else {
+  //         print("No products to delete.");
+  //       }
+  //     } else {
+  //       print("Document does not exist.");
+  //     }
+  //   }).catchError((error) {
+  //     print("Failed to delete product: $error");
+  //   });
+  // }

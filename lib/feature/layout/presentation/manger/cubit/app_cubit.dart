@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:buzzer_app/feature/layout/data/repos/app_layout_repo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,7 @@ import '../../../data/model/restaurant_model/restaurant_model.dart';
 part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
-  AppCubit() : super(AppInitialState());
+  AppCubit(this.appLayoutRepo) : super(AppInitialState());
 
   static AppCubit get(context) => BlocProvider.of(context);
 
@@ -23,6 +24,17 @@ class AppCubit extends Cubit<AppState> {
     CartView(),
     ProfileView(),
   ];
+
+  final AppLayoutRepo appLayoutRepo;
+  Future<void> addRestaurant() async {
+    emit(AddRestaurantLoadingState());
+    var result = await appLayoutRepo.addRestaurant();
+    result.fold(
+      (failure) =>
+          emit(AddRestaurantFailureState(errorMessage: failure.message)),
+      (sucess) => emit(AddRestaurantSuccessState()),
+    );
+  }
 
   void changeBottomNavIndex(index) {
     currentIndex = index;

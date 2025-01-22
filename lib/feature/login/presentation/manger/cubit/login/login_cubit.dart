@@ -38,14 +38,12 @@ class LoginCubit extends Cubit<LoginState> {
         }
       },
       codeSent: (verificationId, forceResendingToken) {
-        // this.verificationId = verificationId;
         log(verificationId.toString());
         emit(LoginSuccessState(
             model: LoginDataModel(
                 phoneNumber: phoneNumber, verificationId: verificationId)));
       },
       codeAutoRetrievalTimeout: (verificationId) {
-        // this.verificationId = verificationId;
         log('Auto retrieval time out');
       },
     );
