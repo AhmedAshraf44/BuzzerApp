@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
@@ -14,6 +16,7 @@ class CustomCardProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(MediaQuery.sizeOf(context).width.toString());
     return Card(
       elevation: 6,
       color: Colors.white,
@@ -67,12 +70,14 @@ class CustomCardProductItem extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Text(
-                  'SAR ${product.discountPrice.toString()}',
-                  style: AppStyles.textStyle12Regular.copyWith(
-                      color: Color(0xff8B8B8B),
-                      decoration: TextDecoration.lineThrough),
-                ),
+                MediaQuery.sizeOf(context).width < 300
+                    ? Text(
+                        'SAR ${product.discountPrice.toString()}',
+                        style: AppStyles.textStyle12Regular.copyWith(
+                            color: Color(0xff8B8B8B),
+                            decoration: TextDecoration.lineThrough),
+                      )
+                    : SizedBox(),
                 SizedBox(
                   width: 5,
                 ),

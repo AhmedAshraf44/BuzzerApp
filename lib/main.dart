@@ -29,9 +29,7 @@ class BuzzerApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AppCubit(
         getIt.get<AppLayoutRepoImpl>(),
-      )
-        ..getRestaurnatsData()
-        ..addRestaurant(),
+      ),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,

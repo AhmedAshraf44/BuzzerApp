@@ -1,9 +1,11 @@
 import 'package:buzzer_app/core/utils/widgets/custom_button.dart';
+import 'package:buzzer_app/feature/cart/data/repos/cart_repo_impl.dart';
 import 'package:buzzer_app/feature/cart/presentation/manger/cubit/cart_cubit.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../constants.dart';
+import '../../../../core/services/get_it_service.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'widgets/cart_view_body.dart';
 
@@ -29,7 +31,9 @@ class CartView extends StatelessWidget {
       //   ),
       // ),
       body: BlocProvider(
-        create: (context) => CartCubit()..getCartData(),
+        create: (context) => CartCubit(
+          getIt.get<CartRepoImpl>(),
+        )..getCartData(),
         child: BlocBuilder<CartCubit, CartState>(
           builder: (context, state) {
             var cubit = CartCubit.get(context);

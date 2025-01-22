@@ -26,3 +26,13 @@ final class AppLayoutFailureState extends AppState {
 
   AppLayoutFailureState({required this.errorMessage});
 }
+
+final class UpdataRestaurantLoadingState extends AppState {}
+
+final class UpdataRestaurantSuccessState extends AppState {}
+
+final class UpdataRestaurantFailureState extends AppState {
+  final String errorMessage;
+
+  UpdataRestaurantFailureState({required this.errorMessage});
+}

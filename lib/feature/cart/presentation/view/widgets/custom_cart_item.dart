@@ -9,11 +9,11 @@ class CustomCartItem extends StatelessWidget {
     super.key,
     required this.product,
     required this.index,
-    required this.subTotal,
+    //required this.subTotal,
   });
   final Product product;
   final int index;
-  final int subTotal;
+  //final int subTotal;
   @override
   Widget build(BuildContext context) {
     return CustomCartDesignItem(
@@ -36,7 +36,7 @@ class CustomCartItem extends StatelessWidget {
           ),
           CutsomCartPriceDetails(
             tittle: 'Subtotal:',
-            price: 'SAR $subTotal',
+            price: 'SAR 400',
           ),
         ],
       ),

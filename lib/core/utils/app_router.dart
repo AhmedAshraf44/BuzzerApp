@@ -34,7 +34,6 @@ abstract class AppRouter {
           );
         }),
     GoRoute(
-      // path: '/',
       path: kAppLayoutView,
       builder: (context, state) => AppLayoutView(),
     ),
@@ -50,9 +49,5 @@ abstract class AppRouter {
           final product = state.extra as Product;
           return ProductDetialsView(product: product);
         }),
-    // GoRoute(
-    //   path: kCartView,
-    //   builder: (context, state) => CartView(),
-    // ),
   ]);
 }

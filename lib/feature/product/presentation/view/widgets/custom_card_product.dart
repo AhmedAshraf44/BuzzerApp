@@ -26,7 +26,7 @@ class CustomCardProduct extends StatelessWidget {
           ),
           Positioned(
             right: 30,
-            bottom: 110,
+            bottom: 120,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: CachedNetworkImage(
@@ -38,13 +38,6 @@ class CustomCardProduct extends StatelessWidget {
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-
-              //   Image.network(
-              //     product.imageProduct!,
-              //     height: 130,
-              //     width: 130,
-              //     //fit: BoxFit.cover,
-              //   ),
             ),
           ),
         ],

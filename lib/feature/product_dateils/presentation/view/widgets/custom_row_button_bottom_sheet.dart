@@ -1,4 +1,4 @@
-import 'package:buzzer_app/feature/product_dateils/presentation/manger/counter_cubit.dart';
+import 'package:buzzer_app/feature/product_dateils/presentation/manger/cubit/counter/counter_cubit.dart';
 import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_button_counter_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +6,9 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class CustomRowButtonBottomSheet extends StatelessWidget {
-  const CustomRowButtonBottomSheet({super.key});
-
+  const CustomRowButtonBottomSheet({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     var cubit = CounterCubit.get(context);
@@ -33,6 +34,7 @@ class CustomRowButtonBottomSheet extends StatelessWidget {
         ),
         CustomButtonCounterSheet(
           onTap: () {
+            // context.read<CounterCubit>().incrementNumber();
             cubit.incrementNumber();
           },
           icon: Icons.add,

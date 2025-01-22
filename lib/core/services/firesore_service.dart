@@ -1,3 +1,4 @@
+import 'package:buzzer_app/core/utils/model/product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreService {
@@ -16,7 +17,25 @@ class FireStoreService {
     var data = await firestore.collection(path).doc(docuementId).get();
     return data.data() as Map<String, dynamic>;
   }
+
+  Future<DocumentReference<Map<String, dynamic>>> updateProductQuantity(
+      {required String path, required String docuementId}) async {
+    return firestore.collection(path).doc(docuementId);
+  }
+
+  Future<void> addDataToCartFireStore(
+      {required String path,
+      required List<Product> products,
+      String? documentId}) async {
+    List<Map<String, dynamic>> cartData =
+        products.map((product) => product.toJson()).toList();
+    await firestore
+        .collection(path)
+        .doc(documentId)
+        .set({"products": cartData});
+  }
 }
+
 //   Future<void> phoneNumberAuthentation({
 //     required String phone,
 //     required PhoneVerificationCompleted verificationCompleted,

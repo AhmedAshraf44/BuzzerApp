@@ -10,13 +10,13 @@ class AppLayoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-        //  BlocProvider(
+        // BlocProvider(
         //   create: (context) => AppCubit(
         //     getIt.get<AppLayoutRepoImpl>(),
         //   )
         //     ..getRestaurnatsData()
         //     ..addRestaurant(),
-        //   child:
+        //  child:
         BlocConsumer<AppCubit, AppState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -27,7 +27,7 @@ class AppLayoutView extends StatelessWidget {
           body: cubit.pages[cubit.currentIndex],
         );
       },
-      // ),
+      //),
     );
   }
 }

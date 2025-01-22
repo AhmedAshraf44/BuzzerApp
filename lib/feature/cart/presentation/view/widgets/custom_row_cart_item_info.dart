@@ -1,4 +1,3 @@
-import 'package:buzzer_app/feature/cart/presentation/manger/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
@@ -16,7 +15,7 @@ class CustomRowCartItemInfo extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    var cubit = CartCubit.get(context);
+    //var cubit = CartCubit.get(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
