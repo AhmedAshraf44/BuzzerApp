@@ -1,4 +1,4 @@
-import 'package:buzzer_app/feature/layout/data/model/restaurant_model/product.dart';
+import 'package:buzzer_app/core/utils/model/product.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'custom_customer_review_list_view.dart';

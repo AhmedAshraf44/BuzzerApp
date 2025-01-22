@@ -5,7 +5,7 @@ import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/cus
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/widgets/my_divider.dart';
-import '../../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../../core/utils/model/product.dart';
 
 class CustomProductDetailsBody extends StatelessWidget {
   const CustomProductDetailsBody({

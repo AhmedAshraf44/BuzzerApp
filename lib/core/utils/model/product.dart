@@ -59,6 +59,11 @@ class Product extends Equatable {
       );
 
   Map<String, dynamic> toJson() => {
+        'uId': uId,
+        'name_restaurant': name,
+        'address_restaurant': address,
+        'id': id,
+        'quantity': quantity,
         'image_restaurant': imageRestaurant,
         'image_product': imageProduct,
         'description': description,
@@ -74,6 +79,7 @@ class Product extends Equatable {
   @override
   List<Object?> get props {
     return [
+      id,
       imageRestaurant,
       imageProduct,
       address,

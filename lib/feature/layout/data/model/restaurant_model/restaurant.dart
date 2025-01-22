@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'product.dart';
+import '../../../../../core/utils/model/product.dart';
 
 class Restaurant extends Equatable {
   final String? address;

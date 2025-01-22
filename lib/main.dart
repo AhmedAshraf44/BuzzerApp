@@ -1,23 +1,28 @@
 import 'dart:developer';
-
-import 'package:bloc/bloc.dart';
 import 'package:buzzer_app/bloc_observer.dart';
 import 'package:buzzer_app/constants.dart';
 import 'package:buzzer_app/core/utils/app_router.dart';
+import 'package:buzzer_app/feature/layout/presentation/manger/cubit/app_cubit.dart';
 import 'package:buzzer_app/firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/function/build_theme_data.dart';
+import 'core/utils/cache_helper.dart';
+import 'core/utils/model/cart_manger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+  await CacheHelper.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  log(CartManger.cartItem.length.toString());
   addRestaurantData();
+
   runApp(const BuzzerApp());
 }
 
@@ -26,10 +31,13 @@ class BuzzerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router,
-      theme: buildThemeData(),
+    return BlocProvider(
+      create: (context) => AppCubit()..getRestaurnatsData(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+        theme: buildThemeData(),
+      ),
     );
   }
 }
@@ -87,6 +95,41 @@ void addRestaurantData() async {
                   "name": "Linda",
                   "comment":
                       "Hotel Booking System is complete Hotel Booking IT Solution comes with Hotel Quotation Booking System for travel agen ."
+                },
+              ]
+            },
+            {
+              "image_product":
+                  "https://img.freepik.com/free-photo/lule-kebab-with-rice-fried-vegetables_141793-17520.jpg?t=st=1737441417~exp=1737445017~hmac=886454c1a1d2c6f729c1b9071a29e3842110d26e2ccdd4103de22e8df1dbe8ca&w=996",
+              "image_restaurant":
+                  "https://img.freepik.com/free-photo/sitting-table-with-chairs-yellow-sofa-restaurant-with-panoramic-view_114579-1523.jpg?t=st=1737437982~exp=1737441582~hmac=0b2d08eb3aaea11be4b0369978af586e02bc088dca9dff34a6cb4eb3780e1105&w=900",
+              "id": 2,
+              "uId": "1WONmopv1kc2f3ZojLnYK9lys662",
+              "quantity": 0,
+              "address_restaurant": "Main Market Riyadh, KSA",
+              "name_restaurant": "The Skye",
+              "type_restaurant": "Restaurant",
+              "description":
+                  "Serving French cuisine and owned by the Comisar family and located since 1966 at 114 E. 6th Street in Cincinnati, Ohio, The move also means the end of La Normandie restaurant, a tavern and chophouse below the Maisonette. One of Cincinnati's most celebrated restaurants, the Maisonette earned the Mobil Travel Guide's five-star rating for 41 consecutive years. the Maisonette received the five-star ...",
+              "discount_price": 50,
+              "is_cart": false,
+              "name_product": "Butter Sandwich",
+              "place": "Par Lane Hotel",
+              "price": 100,
+              "reviews": [
+                {
+                  "image":
+                      "https://img.freepik.com/premium-photo/young-woman-isolated-pink-wall-showing-copy-space-palm-holding-another-hand-waist_1187-123618.jpg?w=996",
+                  "date": "Jun 28, 2021",
+                  "name": "Linda",
+                  "comment":
+                      "Hotel Booking System is complete Hotel Booking IT Solution comes with Hotel Quotation Booking System for travel agent"
+                },
+                {
+                  "image":
+                      "https://img.freepik.com/free-photo/young-man-showing-thumb-up-checked-shirt-white-t-shirt-looking-serious_176474-84097.jpg?t=st=1737440937~exp=1737444537~hmac=85515056162d7fd61ae6dfbe70275f2d55de590f93b887c56b114ba83d1b2d18&w=996",
+                  "date": "Jun 30, 2020",
+                  "name": "ALI",
                 },
               ]
             },
@@ -270,7 +313,7 @@ void addRestaurantData() async {
   //     log("Failed to add restaurant: $error");
   //   });
   // }
-  restaurantsData.forEach((restaurant) {
+  for (var restaurant in restaurantsData) {
     firestore
         .collection(kRestaurant)
         .doc('1WONmopv1kc2f3ZojLnYK9lys662')
@@ -280,7 +323,18 @@ void addRestaurantData() async {
     }).catchError((error) {
       log('Error adding restaurant data to Firestore: $error');
     });
-  });
+  }
+  // restaurantsData.forEach((restaurant) {
+  //   firestore
+  //       .collection(kRestaurant)
+  //       .doc('1WONmopv1kc2f3ZojLnYK9lys662')
+  //       .set(restaurant)
+  //       .then((value) {
+  //     log('Restaurant data added to Firestore.');
+  //   }).catchError((error) {
+  //     log('Error adding restaurant data to Firestore: $error');
+  //   });
+  // });
 }
 
 //Images to res

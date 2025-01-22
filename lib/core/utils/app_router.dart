@@ -2,11 +2,11 @@ import 'package:buzzer_app/feature/login/data/model/login_data_model.dart';
 import 'package:buzzer_app/feature/login/presentation/view/otp_view.dart';
 import 'package:buzzer_app/feature/login/presentation/view/login_view.dart';
 import 'package:go_router/go_router.dart';
-import '../../feature/layout/data/model/restaurant_model/product.dart';
+import '../../feature/splash/presentation/view/splash_view.dart';
+import 'model/product.dart';
 import '../../feature/layout/presentation/view/app_layout.dart';
 import '../../feature/product/presentation/view/product_view.dart';
 import '../../feature/product_dateils/presentation/view/product_detials.dart';
-import '../../feature/splash/presentation/view/splash_view.dart';
 
 abstract class AppRouter {
   static const kLoginView = '/LoginView';
@@ -17,10 +17,10 @@ abstract class AppRouter {
   //static const kCartView = '/kCartView';
 
   static final router = GoRouter(routes: [
-    // GoRoute(
-    //   path: '/',
-    //   builder: (context, state) => SplashView(),
-    // ),
+    GoRoute(
+      path: '/',
+      builder: (context, state) => SplashView(),
+    ),
     GoRoute(
       path: kLoginView,
       builder: (context, state) => LoginView(),
@@ -34,8 +34,8 @@ abstract class AppRouter {
           );
         }),
     GoRoute(
-      path: '/',
-      // path: kAppLayoutView,
+      // path: '/',
+      path: kAppLayoutView,
       builder: (context, state) => AppLayoutView(),
     ),
     GoRoute(

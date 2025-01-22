@@ -7,9 +7,11 @@ class CutsomCartPriceDetails extends StatelessWidget {
     super.key,
     required this.tittle,
     required this.price,
+    this.priceColor,
   });
   final String tittle;
   final String price;
+  final Color? priceColor;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,7 +29,7 @@ class CutsomCartPriceDetails extends StatelessWidget {
         Text(
           price,
           style: AppStyles.textStyle16Bold.copyWith(
-            color: Colors.black,
+            color: priceColor ?? Colors.black,
           ),
         ),
       ],

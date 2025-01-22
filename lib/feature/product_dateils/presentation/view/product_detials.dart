@@ -1,5 +1,5 @@
 import 'package:buzzer_app/core/function/build_app_bar.dart';
-import 'package:buzzer_app/feature/layout/data/model/restaurant_model/product.dart';
+import 'package:buzzer_app/core/utils/model/product.dart';
 import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_product_details_body.dart';
 import 'package:flutter/material.dart';
 import 'widgets/build_bottom_sheet.dart';

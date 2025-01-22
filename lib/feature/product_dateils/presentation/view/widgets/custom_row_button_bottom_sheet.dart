@@ -1,3 +1,4 @@
+import 'package:buzzer_app/feature/product_dateils/presentation/manger/counter_cubit.dart';
 import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/custom_button_counter_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +10,14 @@ class CustomRowButtonBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = CounterCubit.get(context);
     return Row(
       children: [
         CustomButtonCounterSheet(
           containerColor: Colors.white,
-          onTap: () {},
+          onTap: () {
+            cubit.decrementNumber();
+          },
           icon: Icons.remove,
           borderColor: kTextColor,
         ),
@@ -21,14 +25,16 @@ class CustomRowButtonBottomSheet extends StatelessWidget {
           width: 8,
         ),
         Text(
-          '02',
+          cubit.counter.toString(),
           style: AppStyles.textStyle16Regular.copyWith(color: Colors.black),
         ),
         SizedBox(
           width: 8,
         ),
         CustomButtonCounterSheet(
-          onTap: () {},
+          onTap: () {
+            cubit.incrementNumber();
+          },
           icon: Icons.add,
           borderColor: kTextColor,
           iconColor: Colors.white,

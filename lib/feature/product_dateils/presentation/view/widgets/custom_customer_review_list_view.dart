@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/widgets/my_divider.dart';
-import '../../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../../core/utils/model/product.dart';
 import 'custom_customer_review_list_view_item.dart';
 
 class CustomCustomerReviewListView extends StatelessWidget {

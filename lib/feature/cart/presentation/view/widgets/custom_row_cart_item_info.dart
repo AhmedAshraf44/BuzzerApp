@@ -1,28 +1,29 @@
+import 'package:buzzer_app/feature/cart/presentation/manger/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_styles.dart';
+import '../../../../../core/utils/model/product.dart';
 import '../../../../../core/utils/widgets/custom_rating.dart';
 
 class CustomRowCartItemInfo extends StatelessWidget {
   const CustomRowCartItemInfo({
     super.key,
+    required this.product,
+    required this.index,
   });
-
+  final Product product;
+  final int index;
   @override
   Widget build(BuildContext context) {
+    var cubit = CartCubit.get(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: CircleAvatar(
-            radius: 30,
-            child: Image.asset(
-              Assets.imagesProduct,
-              fit: BoxFit.cover,
-            ),
+        CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(
+            product.imageProduct!,
           ),
         ),
         Padding(
@@ -34,7 +35,7 @@ class CustomRowCartItemInfo extends StatelessWidget {
             children: [
               CustomRating(size: 12),
               Text(
-                'Butter Sandwich',
+                product.nameProduct!,
                 style: AppStyles.textStyle18Bold.copyWith(
                   color: Colors.black,
                 ),
@@ -52,7 +53,10 @@ class CustomRowCartItemInfo extends StatelessWidget {
         ),
         Spacer(),
         IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            await cubit.deleteFirstProduct(index);
+            cubit.getCartData();
+          },
           icon: Icon(
             Icons.delete,
             color: Color(0xffEC362B),

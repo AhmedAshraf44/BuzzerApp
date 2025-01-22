@@ -9,19 +9,21 @@ class AppLayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppCubit()..getRestaurnatsData(),
-      child: BlocConsumer<AppCubit, AppState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          var cubit = AppCubit.get(context);
-          return Scaffold(
-            appBar: buildAppLyoutAppbar(),
-            bottomNavigationBar: BuildBottomNavBarAppLayout(cubit: cubit),
-            body: cubit.pages[cubit.currentIndex],
-          );
-        },
-      ),
+    return
+        // BlocProvider(
+        //   create: (context) => AppCubit()..getRestaurnatsData(),
+        //   child:
+        BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = AppCubit.get(context);
+        return Scaffold(
+          appBar: buildAppLyoutAppbar(),
+          bottomNavigationBar: BuildBottomNavBarAppLayout(cubit: cubit),
+          body: cubit.pages[cubit.currentIndex],
+        );
+      },
+      //),
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../../core/utils/model/product.dart';
 
 class CustomSupplierItemDetails extends StatelessWidget {
   const CustomSupplierItemDetails({

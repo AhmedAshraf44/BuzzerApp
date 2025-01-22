@@ -44,6 +44,7 @@ dependencies:
   fluttertoast: ^8.2.10
   go_router: ^14.6.3
   modal_progress_hud_nsn: ^0.5.1
+  shared_preferences: ^2.3.5
 
 dev_dependencies:
   flutter_lints: ^5.0.0

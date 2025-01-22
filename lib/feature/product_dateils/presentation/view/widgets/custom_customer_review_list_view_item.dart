@@ -2,7 +2,7 @@ import 'package:buzzer_app/feature/product_dateils/presentation/view/widgets/cus
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../layout/data/model/restaurant_model/review.dart';
+import '../../../../../core/utils/model/review.dart';
 
 class CustomCustomerReviewListViewItem extends StatelessWidget {
   const CustomCustomerReviewListViewItem({

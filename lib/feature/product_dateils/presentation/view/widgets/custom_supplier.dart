@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../../core/utils/model/product.dart';
 
 class CustomSupplier extends StatelessWidget {
   const CustomSupplier({

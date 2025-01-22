@@ -1,7 +1,7 @@
 import 'package:buzzer_app/core/function/build_app_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../core/utils/model/product.dart';
 import 'widgets/custom_card_product.dart';
 
 class ProductView extends StatelessWidget {

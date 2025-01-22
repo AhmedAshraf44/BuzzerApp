@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_router.dart';
-import '../../../../layout/data/model/restaurant_model/product.dart';
+import '../../../../../core/utils/model/product.dart';
 
 class CustomCardProduct extends StatelessWidget {
   const CustomCardProduct({
@@ -33,6 +33,7 @@ class CustomCardProduct extends StatelessWidget {
                 imageUrl: product.imageProduct!,
                 height: 130,
                 width: 130,
+                fit: BoxFit.cover,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),

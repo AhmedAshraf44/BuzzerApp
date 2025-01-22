@@ -51,6 +51,65 @@ class AppCubit extends Cubit<AppState> {
     );
   }
 
+  Future<void> updateProductQuantity(int productId, int newQuantity) async {
+    DocumentReference docRef =
+        FirebaseFirestore.instance.collection(kCart).doc(kuId);
+    FirebaseFirestore.instance.runTransaction((transaction) async {
+      DocumentSnapshot docSnapshot = await transaction.get(docRef);
+      if (docSnapshot.exists) {
+        // Get the products list
+        List<dynamic> products =
+            List.from(docSnapshot['products']); // Create a copy of the list
+
+        // Find the product with the specified id
+        bool productFound = false;
+        for (var product in products) {
+          if (product['id'] == productId) {
+            // Update the quantity
+            product['quantity'] = newQuantity;
+            productFound = true;
+            break; // Exit the loop early
+          }
+        }
+
+        if (productFound) {
+          // Update the document with the modified products list
+          transaction.update(docRef, {
+            'products': products,
+          });
+          print("Product quantity updated successfully.");
+        } else {
+          print("Product with ID $productId not found.");
+        }
+      } else {
+        print("Document does not exist.");
+      }
+    }).catchError((error) {
+      print("Failed to update product quantity: $error");
+    });
+
+    //   if (docSnapshot.exists) {
+    //     List<dynamic> products = docSnapshot['products'];
+
+    //     for (var product in products) {
+    //       if (product['id'] == productId) {
+    //         product['quantity'] = newQuantity;
+
+    //         transaction.update(docRef, {
+    //           'products': products,
+    //         });
+    //         log(' productId : newQuantity : ${productId} : ${newQuantity}');
+    //         print("Product quantity updated successfully.");
+    //         return;
+    //       }
+    //     }
+    //   } else {
+    //     print("No products to delete.");
+    //   }
+    // }).catchError((error) {
+    //   print("Failed to update product quantity: $error");
+    // });
+  }
   // Future<void> updateCart() {
   //   return FirebaseFirestore.instance
   //       .collection(kRestaurant)
